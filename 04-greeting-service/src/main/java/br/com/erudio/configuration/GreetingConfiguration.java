@@ -5,7 +5,8 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
 @Component
-@RefreshScope
+@RefreshScope  // Utilizado para atualizar automaticamente as configurações caso haja alguma alteração 
+               // enquanto estiver rodando
 @ConfigurationProperties("greeting-service")
 public class GreetingConfiguration {
 
