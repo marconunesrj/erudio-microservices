@@ -3,13 +3,16 @@ server:
 spring:
   application:
     name: erudio-config-server
+#  profiles:
+#    active:
+#    - local
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/leandrocgsi/erudio-config-server
-          #username: username
-          #password: password
+          uri: https://github.com/marconunesrj/erudio-config-server
+          username: marconunesrj
+          password: G1thubM@4
           default-label: main
           search-paths:
           - 'greeting-service*'
