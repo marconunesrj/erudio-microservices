@@ -30,6 +30,7 @@ public class Cambio implements Serializable{
 	@Column(nullable = false)
 	private BigDecimal conversionFactor;
 	
+	// OBS: NÃO UTILIZAR ESTA TÉCNICA DE @Transient, trabalhe com DTO ou VO
 	@Transient
 	private BigDecimal convertedValue;
 

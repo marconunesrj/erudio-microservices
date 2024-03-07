@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import br.com.erudio.response.Cambio;
 
+//@FeignClient(name = "cambio-service", url = "localhost:8000,localhost:8001,localhost:8002")
 @FeignClient(name = "cambio-service", url = "localhost:8000")
 public interface CambioProxy {
 	

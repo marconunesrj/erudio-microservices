@@ -35,6 +35,7 @@ public class Book implements Serializable{
     @Column(nullable = false, length = 250)
     private String title;
     
+    // OBS: NÃO UTILIZAR ESTA TÉCNICA DE @Transient, trabalhe com DTO ou VO
     @Transient
     private String currency;
     
