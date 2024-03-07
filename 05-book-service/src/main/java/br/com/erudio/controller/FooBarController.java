@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.resilience4j.bulkhead.annotation.Bulkhead;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
+@Tag(name = "Foo bar")
 @RestController
 @RequestMapping("book-service")
 public class FooBarController {
@@ -17,6 +20,7 @@ public class FooBarController {
 	// https://resilience4j.readme.io/docs/getting-started
 	
 	@GetMapping("/foo-bar")
+    @Operation(summary = "Foo bar")
 	//@Retry(name = "foo-bar", fallbackMethod = "fallbackMethod")
 	//@CircuitBreaker(name = "default", fallbackMethod = "fallbackMethod")
 	// Limita o número de requisições em um determinado período de tempo para este Endpoint, 

@@ -17,6 +17,17 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: false
+#springdoc:
+#  api-docs:
+#    path: cambio-service/v3/api-docs
+#springdoc:
+#  pathsToMatch:
+#    - /auth/**
+#    - /api/**/v1/**
+#  swagger-ui:
+#    use-root-path: true
+
+
 # Estas configurações são para versões mais antigas do spring boot
 #  datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver

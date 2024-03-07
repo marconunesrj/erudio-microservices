@@ -82,36 +82,20 @@
 					"response": []
 				},
 				{
-					"name": "Get Cambio API Gateway",
+					"name": "Swagger",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8765/cambio-service/:amount/:from/:to",
+							"raw": "http://localhost:8000/swagger-ui/index.html",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8765",
+							"port": "8000",
 							"path": [
-								"cambio-service",
-								":amount",
-								":from",
-								":to"
-							],
-							"variable": [
-								{
-									"key": "amount",
-									"value": "5"
-								},
-								{
-									"key": "from",
-									"value": "USD"
-								},
-								{
-									"key": "to",
-									"value": "BRL"
-								}
+								"swagger-ui",
+								"index.html"
 							]
 						}
 					},
@@ -134,37 +118,6 @@
 								"localhost"
 							],
 							"port": "8100",
-							"path": [
-								"book-service",
-								":id",
-								":currency"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": "1"
-								},
-								{
-									"key": "currency",
-									"value": "BRL"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Book Feign API Gateway",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8765/book-service/:id/:currency",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8765",
 							"path": [
 								"book-service",
 								":id",
@@ -242,6 +195,138 @@
 									"key": "currency",
 									"value": "BRL"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Swagger",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8100/swagger-ui/index.html",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8100",
+							"path": [
+								"swagger-ui",
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Gateway",
+			"item": [
+				{
+					"name": "Get Book Feign API Gateway",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/book-service/:id/:currency",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"book-service",
+								":id",
+								":currency"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "currency",
+									"value": "BRL"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cambio API Gateway",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/cambio-service/:amount/:from/:to",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"cambio-service",
+								":amount",
+								":from",
+								":to"
+							],
+							"variable": [
+								{
+									"key": "amount",
+									"value": "5"
+								},
+								{
+									"key": "from",
+									"value": "USD"
+								},
+								{
+									"key": "to",
+									"value": "BRL"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Swagger API Gateway",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/swagger-ui/index.html",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"swagger-ui",
+								"index.html"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Foo-Bar @Bulkhead",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/book-service/foo-bar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"book-service",
+								"foo-bar"
 							]
 						}
 					},

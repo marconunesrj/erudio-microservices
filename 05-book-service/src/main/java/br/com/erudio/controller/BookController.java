@@ -16,7 +16,10 @@ import br.com.erudio.mapper.DozerMapper;
 import br.com.erudio.proxy.CambioProxy;
 import br.com.erudio.repository.BookRepository;
 import br.com.erudio.response.Cambio;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
+@Tag(name = "Book endpoint")
 @RestController
 @RequestMapping("book-service")
 public class BookController {
@@ -30,6 +33,7 @@ public class BookController {
 	@Autowired
 	private CambioProxy proxy;
 	
+    @Operation(summary = "Find a specific book by your ID")
 	@GetMapping(value = "/{id}/{currency}")	
 	public BookDTO findBook(
 			@PathVariable("id") Long id,
