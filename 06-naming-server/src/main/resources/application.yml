@@ -5,5 +5,5 @@ spring:
     name: naming-server
 eureka:
   client:
-    register-with-eureka: false
+    register-with-eureka: false  # Para que o Eureka não se auto registre, apenas em ambiente de desenvolvimento
     fetch-registry: false
