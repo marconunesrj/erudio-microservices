@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import br.com.erudio.model.Book;
+import br.com.erudio.dto.BookDTO;
+import br.com.erudio.mapper.DozerMapper;
+//import br.com.erudio.model.Book;
 import br.com.erudio.proxy.CambioProxy;
 import br.com.erudio.repository.BookRepository;
 import br.com.erudio.response.Cambio;
@@ -29,12 +31,13 @@ public class BookController {
 	private CambioProxy proxy;
 	
 	@GetMapping(value = "/{id}/{currency}")	
-	public Book findBook(
+	public BookDTO findBook(
 			@PathVariable("id") Long id,
 			@PathVariable("currency") String currency
 			) {
 		
-		var book = repository.getById(id);
+//        var book = repository.getById(id);
+        var book = repository.findById(id).get();
 		if (book == null) throw new RuntimeException("Book not Found");
 				
 		var cambio = proxy.getCambio(book.getPrice(), "USD", currency);
@@ -42,16 +45,18 @@ public class BookController {
 		var port = environment.getProperty("local.server.port");
 		book.setEnvironment(port + " FEIGN");
 		book.setPrice(cambio.getConvertedValue());
-		return book;
+        var bookDTO = DozerMapper.parseObject(book, BookDTO.class);
+		return bookDTO;
 	}
 	
 	@GetMapping(value = "/v1/{id}/{currency}")	
-	public Book findBookV1(
+	public BookDTO findBookV1(
 			@PathVariable("id") Long id,
 			@PathVariable("currency") String currency
 			) {
 		
-		var book = repository.getById(id);
+//      var book = repository.getById(id);
+        var book = repository.findById(id).get();
 		if (book == null) throw new RuntimeException("Book not Found");
 		
 		HashMap<String, String> params = new HashMap<>();
@@ -70,6 +75,8 @@ public class BookController {
 		var port = environment.getProperty("local.server.port");
 		book.setEnvironment(port);
 		book.setPrice(cambio.getConvertedValue());
-		return book;
+//		return book;
+        var bookDTO = DozerMapper.parseObject(book, BookDTO.class);
+        return bookDTO;
 	}
 }

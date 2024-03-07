@@ -7,6 +7,115 @@
 	},
 	"item": [
 		{
+			"name": "Cambio Service",
+			"item": [
+				{
+					"name": "Get Cambio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/cambio-service/:amount/:from/:to",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"cambio-service",
+								":amount",
+								":from",
+								":to"
+							],
+							"variable": [
+								{
+									"key": "amount",
+									"value": "5"
+								},
+								{
+									"key": "from",
+									"value": "USD"
+								},
+								{
+									"key": "to",
+									"value": "BRL"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book Service",
+			"item": [
+				{
+					"name": "Get Book Feign",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8100/book-service/:id/:currency",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8100",
+							"path": [
+								"book-service",
+								":id",
+								":currency"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "currency",
+									"value": "BRL"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Book v1 RestTemplate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8100/book-service/v1/:id/:currency",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8100",
+							"path": [
+								"book-service",
+								"v1",
+								":id",
+								":currency"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "currency",
+									"value": "BRL"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Para fazer o refresh automatico",
 			"request": {
 				"method": "POST",

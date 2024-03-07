@@ -7,16 +7,27 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/cambio_service?useTimezone=true&serverTimezone=UTC
     username: root
-    password: admin123
+    password: 12345678
   jpa:
+    open-in-view: false
     hibernate:
       ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-  flyway:
-    url: jdbc:mysql://localhost:3306/
-    schemas: cambio_service
-    user: root
-    password: admin123
+    show-sql: false
+# Estas configurações são para versões mais antigas do spring boot
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/cambio_service?useTimezone=true&serverTimezone=UTC
+#    username: root
+#    password: 12345678
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#  flyway:
+#    url: jdbc:mysql://localhost:3306/
+#    schemas: cambio_service
+#    user: root
+#    password: 12345678
