@@ -10,7 +10,7 @@
 			"name": "Cambio Service",
 			"item": [
 				{
-					"name": "Get Cambio",
+					"name": "Get Cambio Port=8000",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -44,6 +44,78 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get Cambio Port=8001",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8001/cambio-service/:amount/:from/:to",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"cambio-service",
+								":amount",
+								":from",
+								":to"
+							],
+							"variable": [
+								{
+									"key": "amount",
+									"value": "5"
+								},
+								{
+									"key": "from",
+									"value": "USD"
+								},
+								{
+									"key": "to",
+									"value": "BRL"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cambio API Gateway",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/cambio-service/:amount/:from/:to",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"cambio-service",
+								":amount",
+								":from",
+								":to"
+							],
+							"variable": [
+								{
+									"key": "amount",
+									"value": "5"
+								},
+								{
+									"key": "from",
+									"value": "USD"
+								},
+								{
+									"key": "to",
+									"value": "BRL"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -51,7 +123,7 @@
 			"name": "Book Service",
 			"item": [
 				{
-					"name": "Get Book Feign",
+					"name": "Get Book Feign Port 8100",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -71,6 +143,68 @@
 								{
 									"key": "id",
 									"value": "1"
+								},
+								{
+									"key": "currency",
+									"value": "BRL"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Book Feign API Gateway",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8765/book-service/:id/:currency",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8765",
+							"path": [
+								"book-service",
+								":id",
+								":currency"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "currency",
+									"value": "BRL"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Book Feign Port 8101",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8101/book-service/:id/:currency",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8101",
+							"path": [
+								"book-service",
+								":id",
+								":currency"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
 								},
 								{
 									"key": "currency",

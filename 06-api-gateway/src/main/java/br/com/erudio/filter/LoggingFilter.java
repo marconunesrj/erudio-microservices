@@ -9,6 +9,8 @@ import org.springframework.web.server.ServerWebExchange;
 
 import reactor.core.publisher.Mono;
 
+// OBS: Somente demonstrando como pode ser implementado um filtro
+
 @Component
 public class LoggingFilter implements GlobalFilter{
 
