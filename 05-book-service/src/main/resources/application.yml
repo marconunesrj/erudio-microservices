@@ -1,9 +1,35 @@
 server:
   port: 8100
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+#  https://resilience4j.readme.io/docs/getting-started
+resilience4j:
+  bulkhead:
+    instances:
+      default:  # name que está na anotation do @Bulkhead na classe ...Controller  @Bulkhead(name = "default")
+        max-concurrent-calls: 10
+#  circuitbreaker:
+#    instances:
+#      default:  # name que está na anotation do @CircuitBreaker na classe ...Controller  @CircuitBreaker(name = "default")
+#        allow-health-indicator-to-fail: false
+  ratelimiter:
+    instances:
+      default:  # Em 10 segundos pode fazer 2 requisições # name que está na anotation do @RateLimiter na classe ...Controller  @RateLimiter(name = "default")
+        limit-for-period: 2
+        limit-refresh-period: 10s
+  retry:
+    instances:
+      foo-bar:  # name que está na anotation do @Retry na classe ...Controller  @Retry(name = "foo-bar", fallbackMethod = "fallbackMethod")
+        max-attempts: 5   # Para o retry tentar 5 vezes antes de dar o erro
+      default:
+        max-attempts: 4   # Para o retry tentar 4 vezes antes de dar o erro
+        wait-duration: 1s  # Tempo entre cada tentativa de retry
+        enable-exponential-backoff: true  # Tempo de espera em escala exponencial. Acredito que não deva ser utilizado
+
 spring:
   application:
     name: book-service
