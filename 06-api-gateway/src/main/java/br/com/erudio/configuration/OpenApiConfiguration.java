@@ -13,6 +13,9 @@ import org.springframework.context.annotation.Lazy;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
 
+// https://github.com/springdoc/springdoc-openapi/issues/717
+// https://github.com/springdoc/springdoc-openapi-demos/tree/master
+// https://piotrminkowski.com/2020/02/20/microservices-api-documentation-with-springdoc-openapi/
 
 @Configuration
 //@Profile({"local", "dev"})
