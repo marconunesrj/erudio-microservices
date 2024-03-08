@@ -27,6 +27,20 @@ spring:
         - Path=/v3/api-docs/**
         filters:
         - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
+#  https://stackoverflow.com/questions/74615108/sleuth-is-not-working-with-spring-boot-3-0-0-version
+management:
+  tracing:
+    sampling:
+      probability: 1.0  # Assim estaremos logando 100%, em produção o ideal é 5% (0.05)
+
+#  https://stackoverflow.com/questions/75758772/how-to-configure-zipkin-baseurl-in-springboot-3
+logging:
+  pattern:
+    level: "%5p [${spring.application.name},%X{traceId:-},%X{spanId:-}]"
+#  Para versões antigas do spring boot 2.xxx
+#  sleuth:
+#    sampler:
+#      probability: 1.0  # Assim estaremos logando 100%, em produção o ideal é 5% (0.05)
 
 
 #  https://medium.com/@pubuduc.14/swagger-openapi-specification-3-integration-with-spring-cloud-gateway-part-2-1d670d4ab69a

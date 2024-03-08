@@ -17,6 +17,21 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: false
+#  https://stackoverflow.com/questions/74615108/sleuth-is-not-working-with-spring-boot-3-0-0-version
+management:
+  tracing:
+    sampling:
+      probability: 1.0  # Assim estaremos logando 100%, em produção o ideal é 5% (0.05)
+
+#  https://stackoverflow.com/questions/75758772/how-to-configure-zipkin-baseurl-in-springboot-3
+logging:
+  pattern:
+    level: "%5p [${spring.application.name},%X{traceId:-},%X{spanId:-}]"
+
+#  Para versões antigas do spring boot 2.xxx
+#  sleuth:
+#    sampler:
+#      probability: 1.0  # Assim estaremos logando 100%, em produção o ideal é 5% (0.05)
 #springdoc:
 #  api-docs:
 #    path: cambio-service/v3/api-docs
