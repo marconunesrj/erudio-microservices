@@ -2,6 +2,7 @@ version: '3.4'
 
 services:
   zipkin-server:
+    container_name: zipkin-server
     image: openzipkin/zipkin:2.23.2
     ports:
       - 9411:9411
@@ -14,7 +15,8 @@ services:
       - erudio-network
 
   rabbit-mq:
-    image: rabbitmq:3.8.14-management
+   container_name: rabbit-mq
+   image: rabbitmq:3.8.14-management
     ports:
       - 5672:5672
       - 15672:15672
@@ -22,14 +24,17 @@ services:
       - erudio-network
 
   cambio-db:
-    image: mysql:5.7.22
-    command: --default-authentication-plugin=mysql_native_password
+    container_name: cambio-db
+#    image: mysql:5.7.22                                             #  8.0.29
+#    command: --default-authentication-plugin=mysql_native_password  #  mysqld --default-authentication-plugin=mysql_native_password   # para autenticar no Banco de Dados
+    image: mysql:8.0.29                                             #  8.0.29
+    command: mysqld --default-authentication-plugin=mysql_native_password  #  mysqld --default-authentication-plugin=mysql_native_password   # para autenticar no Banco de Dados
     restart: always
     environment:
       TZ: America/Sao_Paulo
-      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_ROOT_PASSWORD: 12345678
       MYSQL_USER: docker
-      MYSQL_PASSWORD: admin123
+      MYSQL_PASSWORD: 12345678
       MYSQL_DATABASE: cambio_service
       MYSQL_ROOT_HOST: '%'
       MYSQL_TCP_PORT: 3308
@@ -41,14 +46,17 @@ services:
       - erudio-network
       
   book-db:
-    image: mysql:5.7.22
-    command: --default-authentication-plugin=mysql_native_password
+    container_name: book-db
+#    image: mysql:5.7.22                                             #  8.0.29
+#    command: --default-authentication-plugin=mysql_native_password  #  mysqld --default-authentication-plugin=mysql_native_password   # para autenticar no Banco de Dados
+    image: mysql:8.0.29                                             #  8.0.29
+    command: mysqld --default-authentication-plugin=mysql_native_password  #  mysqld --default-authentication-plugin=mysql_native_password   # para autenticar no Banco de Dados
     restart: always
     environment:
       TZ: America/Sao_Paulo
-      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_ROOT_PASSWORD: 12345678
       MYSQL_USER: docker
-      MYSQL_PASSWORD: admin123
+      MYSQL_PASSWORD: 12345678
       MYSQL_DATABASE: book_service
       MYSQL_ROOT_HOST: '%'
       MYSQL_TCP_PORT: 3310
@@ -60,13 +68,15 @@ services:
       - erudio-network
 
   naming-server:
-    image: leandrocgsi/naming-server:latest
+   container_name: naming-server
+   image: leandrocgsi/naming-server:latest
     ports:
       - 8761:8761
     networks:
       - erudio-network
 
   api-gateway:
+    container_name: api-gateway
     image: leandrocgsi/api-gateway:latest
     ports:
       - 8765:8765
@@ -83,6 +93,7 @@ services:
       - erudio-network
 
   cambio-service:
+    container_name: cambio-service
     image: leandrocgsi/cambio-service:latest
     restart: always
     environment:
@@ -94,10 +105,10 @@ services:
       SPRING_ZIPKIN_SENDER_TYPE: rabbit
       SPRING.DATASOURCE.URL: jdbc:mysql://cambio-db:3308/cambio_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
       SPRING.DATASOURCE.USERNAME: root
-      SPRING.DATASOURCE.PASSWORD: admin123
+      SPRING.DATASOURCE.PASSWORD: 12345678
       SPRING.FLYWAY.URL: jdbc:mysql://cambio-db:3308/cambio_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
       SPRING.FLYWAY.USER: root
-      SPRING.FLYWAY.PASSWORD: admin123
+      SPRING.FLYWAY.PASSWORD: 12345678
     ports:
       - 8000:8000
     depends_on:
@@ -108,6 +119,7 @@ services:
       - erudio-network
       
   book-service:
+    container_name: book-service
     image: leandrocgsi/book-service:latest
     restart: always
     environment:
@@ -119,10 +131,10 @@ services:
       SPRING_ZIPKIN_SENDER_TYPE: rabbit
       SPRING.DATASOURCE.URL: jdbc:mysql://book-db:3310/book_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
       SPRING.DATASOURCE.USERNAME: root
-      SPRING.DATASOURCE.PASSWORD: admin123
+      SPRING.DATASOURCE.PASSWORD: 12345678
       SPRING.FLYWAY.URL: jdbc:mysql://book-db:3310/book_service?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
       SPRING.FLYWAY.USER: root
-      SPRING.FLYWAY.PASSWORD: admin123
+      SPRING.FLYWAY.PASSWORD: 12345678
     ports:
       - 8100:8100
     depends_on:
