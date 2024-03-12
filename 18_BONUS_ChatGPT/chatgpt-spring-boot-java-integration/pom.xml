@@ -5,7 +5,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.5</version>
+		<version>3.2.3</version>
+        <!-- <version>3.1.5</version>  -->
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>br.com.erudio</groupId>
@@ -14,7 +15,8 @@
     <name>chatgpt-spring-boot-java-integration</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>20</java.version>
+	  	<okhttp-version>4.12.0</okhttp-version>
+        <java.version>21</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -22,6 +24,12 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+ 	    <!-- OkHttp: For making HTTP requests -->
+	    <dependency>
+	        <groupId>com.squareup.okhttp3</groupId>
+	        <artifactId>okhttp</artifactId>
+	    </dependency>
+	    
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>

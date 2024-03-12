@@ -1,5 +1,5 @@
 openai:
     model: gpt-3.5-turbo
     api:
-        key: ${OPENAI_API_KEY}
+        key: ${OPENAI_API_KEY}  # Pega a chave da variável de ambiente do windows
         url: https://api.openai.com/v1/chat/completions

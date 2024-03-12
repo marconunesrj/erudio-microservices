@@ -335,6 +335,140 @@
 			]
 		},
 		{
+			"name": "ChatGPT",
+			"item": [
+				{
+					"name": "ChatGPT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "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",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"gpt-3.5-turbo\",\r\n    \"messages\":[\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"What is a programming languages?\"\r\n        }\r\n    ],\r\n    \"temperature\": 1,\r\n    \"max_tokens\": 256,\r\n    \"top_p\": 1,\r\n    \"frequency_penalty\": 0,\r\n    \"presence_penalty\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.openai.com/v1/chat/completions",
+							"protocol": "https",
+							"host": [
+								"api",
+								"openai",
+								"com"
+							],
+							"path": [
+								"v1",
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChatGPT Local",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bot/chat?prompt=Qual seu nome",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bot",
+								"chat"
+							],
+							"query": [
+								{
+									"key": "prompt",
+									"value": "Qual seu nome"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChatGPT Local Nova Implementação",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/bot/chat1?prompt=Quero saber sobre inteligência artificial.",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bot",
+								"chat1"
+							],
+							"query": [
+								{
+									"key": "prompt",
+									"value": "Quero saber sobre inteligência artificial."
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Para fazer o refresh automatico",
 			"request": {
 				"method": "POST",
