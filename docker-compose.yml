@@ -69,7 +69,7 @@ services:
 
   naming-server:
     container_name: naming-server
-    image: marconunesrj007/naming-server:latest
+    image: marconunesrj007/naming-server:0.0.1-SNAPSHOT
     build:
       context: .
       dockerfile: 06-naming-server/Dockerfile
@@ -80,7 +80,7 @@ services:
 
   api-gateway:
     container_name: api-gateway
-    image: marconunesrj007/api-gateway:latest
+    image: marconunesrj007/api-gateway:0.0.1-SNAPSHOT
     restart: always
     build:
       context: .
@@ -101,7 +101,7 @@ services:
 
   cambio-service:
     container_name: cambio-service
-    image: marconunesrj007/cambio-service:latest
+    image: marconunesrj007/cambio-service:0.0.1-SNAPSHOT
     restart: always
     build:
       context: .
@@ -130,7 +130,7 @@ services:
       
   book-service:
     container_name: book-service
-    image: marconunesrj007/book-service:latest
+    image: marconunesrj007/book-service:0.0.1-SNAPSHOT
     restart: always
     build:
       context: .
