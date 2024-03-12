@@ -127,6 +127,27 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<!--
+                        <env>                            
+						    <BP_JVM_VERSION>21</BP_JVM_VERSION>
+				        </env>
+				        -->                        
+				        <builder>paketobuildpacks/builder-jammy-base:latest</builder>
+						<name>marconunesrj007/${project.artifactId}:${project.version}</name>
+						<!-- <publish>true</publish> -->
+					</image>
+					<!-- <pullPolicy>IF_NOT_PRESENT</pullPolicy> -->
+                    <!--
+                    <docker>
+                        <publishRegistry>
+                            <username>marconunesrj007</username>
+                            <password>D0ck34M@rc0</password>
+                        </publishRegistry>
+                    </docker>
+					-->
+ 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
